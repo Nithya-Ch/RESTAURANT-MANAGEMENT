@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .valid {
+            border-color: green;
+            color: green;
+        
+        }
+        .invalid {
+            border-color: red;
+            color: red;
+        }
+        feedback.textcontent{
+            font-size: larger;
+        }
+        .feedback {
+            font-size: 0.9em;
+            margin-left: 5px;
+            margin-top:5px
+        }
+
+
+        .feedback.valid {
+            color: green;
+        }
+
+        .feedback.invalid {
+            color: red;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            margin:0;
+            background-color: #f4f4f4;
+            background-image: linear-gradient(rgba(218, 134, 51, 0.2),rgba(218, 149, 79, 0.2)),url(images/artem-beliaikin-TSS-1aqoRXE-unsplash.jpg);
+            background-position: center;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border:2px solid #ccc;
+            width:100%;
+            font-size: 1em;
+                                                                                                                                      
+        }
+        form{
+            text-align: center;
+            padding-top: 50px;
+        }
+        label{
+            font-size: x-large;
+            margin-bottom: 8px;
+            text-align: left;
+            width: 100%;
+            color: rgb(50, 33, 52);
+        }
+        button[type=submit]{
+            padding: 10px 20px;
+            width: 107%;
+            font-size: large;
+            border: none;
+            background-color: rgb(92, 73, 46);
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button[type=submit]:hover{
+            background-color: #45a049;
+        }
+      
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name"><b>Name:</b></label>
+        <input type="text" id="name" oninput="validateName()" required>
+        <span id="nameFeedback" class="feedback"></span><br>
+
+        <label for="email"><b>Email:</b></label>
+        <input type="email" id="email" oninput="validateEmail()" required>
+        <span id="emailFeedback" class="feedback"></span><br>
+
+        <label for="password"><b>Password:</b></label>
+        <input type="password" id="password" oninput="validatePassword()" required>
+        <span id="passwordFeedback" class="feedback"></span><br>
+
+        <button type="submit">Sign in</button>
+    
+    </form>
+
+    <script>
+        function validateName() {
+            const name = document.getElementById("name");
+            const feedback = document.getElementById("nameFeedback");
+
+            if (name.value.length >= 3) 
+            {
+                name.classList.add("valid");
+                name.classList.remove("invalid");
+                feedback.textContent = "Looks good!";
+                feedback.classList.add("valid");
+                feedback.classList.remove("invalid");
+            } else {
+                name.classList.add("invalid");
+                name.classList.remove("valid");
+                feedback.textContent = "Name must be at least 3 characters long.";
+                feedback.classList.add("invalid");
+                feedback.classList.remove("valid");
+            }
+        }
+
+        function validateEmail() {
+            const email = document.getElementById("email");
+            const feedback = document.getElementById("emailFeedback");
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (regex.test(email.value)) {
+                email.classList.add("valid");
+                email.classList.remove("invalid");
+                feedback.textContent = "Valid email!";
+                feedback.classList.add("valid");
+                feedback.classList.remove("invalid");
+            } else {
+                email.classList.add("invalid");
+                email.classList.remove("valid");
+                feedback.textContent = "Please enter a valid email address.";
+                feedback.classList.add("invalid");
+                feedback.classList.remove("valid");
+            }
+        }
+
+        function validatePassword() {
+            const password = document.getElementById("password");
+            const feedback = document.getElementById("passwordFeedback");
+
+            if (password.value.length >= 6) {
+                password.classList.add("valid");
+                password.classList.remove("invalid");
+                feedback.textContent = "Strong password!";
+                feedback.classList.add("valid");
+                feedback.classList.remove("invalid");
+            } else {
+                password.classList.add("invalid");
+                password.classList.remove("valid");
+                feedback.textContent = "Password must be at least 6 characters long.";
+                feedback.classList.add("invalid");
+                feedback.classList.remove("valid");
+            }
+        }
+        document.getElementById('myForm').addEventListener('submit',function(event){
+            const name = document.getElementById("name");
+            const email=document.getElementById("email");
+            const password=document.getElementById("password");
+
+            validateName();
+            validateEmail();
+            validatePassword();
+
+            if(name.classList.contains('invalid')|| email.classList.contains("invalid")|| password.classList.contains("invalid")){
+                event.preventDefault();
+                alert("Please correct the errors before submitting.");
+            }
+        });
+    </script>
+</body>
+</html>

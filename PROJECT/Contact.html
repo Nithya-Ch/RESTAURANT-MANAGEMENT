@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Opening Hours</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .opening-hours {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .opening-hours h2 {
+            color: #f8b400;
+            margin-bottom: 15px;
+        }
+        .hours {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .hours div {
+            width: 45%;
+        }
+        .contact {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .book-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #444;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .book-button:hover {
+            background-color: #f8b400;
+        }
+
+        .hr{
+            color: white;
+        }
+        a{
+            color: rgb(214, 166, 229);
+        }
+    </style>
+</head>
+<body>
+    <div class="opening-hours">
+        <h2>Opening Hours</h2>
+        <div class="hours">
+            <div>
+                <p><strong>MONDAY-FRIDAY</strong></p>
+                <p>12:00pm - 10:00pm</p>
+            </div>
+            <div>
+                <p><strong>SATURDAY-SUNDAY</strong></p>
+                <p>10:00am - 12:00am</p>
+            </div>
+        </div>
+        <hr class="hr">
+        <h2>Contact Details</h2>
+        <p class="contact">Cell no:+91 8797357467</p>
+        <div class="hours">
+            <div>
+                <p><strong>Snapchat id-<a href="Fusion@Flavours">Fusion@Flavours</a></strong></p>
+                <p><strong>Instagram id-<a href="Fusion@Flavours">Fusion_Flavours@2024</a></strong></p>
+                
+            </div>
+            <div>
+                <p><strong>Facebook id-<br><a href="Fusion@Flavours">F_F_F@2024</a></strong></p>
+                <p><strong>Twitter id- <br><a href="Fusion@Flavours">Fusion_Flavours</a></strong></p>
+            </div>
+        </div>
+        <p><a href="#" class="book-button">Book Your Table</a></p>
+    </div>
+</body>
+</html>
